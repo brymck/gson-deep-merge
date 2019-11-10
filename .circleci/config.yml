@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Test, package, verify and deploy
           command:
-            mvn --batch-mode deploy
+            mvn --batch-mode --activate-profiles release deploy
 workflows:
   version: 2
   default:
