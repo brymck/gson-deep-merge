@@ -35,12 +35,12 @@ public class GsonDeepMerge {
    * when conflicts arise.
    *
    * @param gson a {@link Gson} instance
-   * @param original an original object of class <tt>T</tt>
-   * @param update an update object of class <tt>T</tt>
-   * @param classOfT the class of <tt>T</tt>
-   * @param <T>
-   * @return the merged object
-   * @throws IllegalStateException
+   * @param original an original object of class {@code T}
+   * @param update an update object of class {@code T}
+   * @param classOfT the class of {@code T}
+   * @param <T> the class of the input and output objects
+   * @return the merged object with class {@code T}
+   * @throws IllegalStateException when there is a type conflict
    */
   public <T> T deepMerge(
       @NotNull Gson gson, @NotNull T original, @NotNull T update, @NotNull Class<T> classOfT)
@@ -58,7 +58,7 @@ public class GsonDeepMerge {
    * @param originalObject an original {@link JsonObject}
    * @param updateObject an update {@link JsonObject}
    * @return the merged object
-   * @throws IllegalStateException
+   * @throws IllegalStateException when there is a type conflict
    */
   public JsonObject deepMerge(@NotNull JsonObject originalObject, @NotNull JsonObject updateObject)
       throws IllegalStateException {
@@ -73,7 +73,7 @@ public class GsonDeepMerge {
    * @param originalObject an original {@link JsonObject}
    * @param updateObject an update {@link JsonObject}
    * @return
-   * @throws IllegalStateException
+   * @throws IllegalStateException when there is a type conflict
    */
   private JsonObject deepMergeInPlace(
       @NotNull JsonObject originalObject, @NotNull JsonObject updateObject)
