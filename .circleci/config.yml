@@ -31,7 +31,7 @@ jobs:
       - *setup-settings-xml
       - run:
           name: Import GPG key
-          command: echo -e "${OSSRH_GPG_KEY}" | gpg --import
+          command: echo "${OSSRH_GPG_KEY}" | base64 --decode | gpg --import --no-tty --batch --yes
       - run:
           name: Test, package, verify and deploy
           command:
