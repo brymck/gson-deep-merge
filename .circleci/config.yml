@@ -30,8 +30,8 @@ jobs:
       - checkout
       - *setup-settings-xml
       - run:
-        name: Import GPG key
-        command: echo -e "${OSSRH_GPG_KEY}" | gpg --import
+          name: Import GPG key
+          command: echo -e "${OSSRH_GPG_KEY}" | gpg --import
       - run:
           name: Test, package, verify and deploy
           command:
