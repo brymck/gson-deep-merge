@@ -4,7 +4,44 @@ import com.google.gson.*;
 import java.util.Map;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * This class allows performing deep merges on two objects of the same class using {@link Gson}.
+ *
+ * For example, given two objects {@code original} and {@code update} of type {@code Example}, you
+ * can merge them into an object reflected their combined field values with the following code
+ * snippet:
+ *
+ * <pre>
+ * {@code
+ * Gson gson = new Gson();
+ * GsonDeepMerge gsonDeepMerge = new GsonDeepMerge();
+ *
+ * Example merged = gsonDeepMerge.deepMerge(
+ *   gson,
+ *   original,
+ *   update,
+ *   Example.class
+ * );
+ * }
+ * </pre>
+ *
+ * @see <a href="https://github.com/google/gson">https://github.com/google/gson</a>
+ *
+ * @author Bryan McKelvey
+ */
 public class GsonDeepMerge {
+  /**
+   * Recursively merge one object with another, preferring non-null values in the update object
+   * when conflicts arise.
+   *
+   * @param gson a {@link Gson} instance
+   * @param original an original object of class <tt>T</tt>
+   * @param update an update object of class <tt>T</tt>
+   * @param classOfT the class of <tt>T</tt>
+   * @param <T>
+   * @return the merged object
+   * @throws IllegalStateException
+   */
   public <T> T deepMerge(
       @NotNull Gson gson, @NotNull T original, @NotNull T update, @NotNull Class<T> classOfT)
       throws IllegalStateException {
@@ -15,8 +52,13 @@ public class GsonDeepMerge {
   }
 
   /**
-   * Recursively merge a [JsonObject] with a provided [updateObject]. This method mutates the
-   * [JsonObject] it's called on.
+   * Recursively merge one {@link JsonObject} with another, preferring non-null values in the update
+   * object conflicts arise.
+   *
+   * @param originalObject an original {@link JsonObject}
+   * @param updateObject an update {@link JsonObject}
+   * @return the merged object
+   * @throws IllegalStateException
    */
   public JsonObject deepMerge(@NotNull JsonObject originalObject, @NotNull JsonObject updateObject)
       throws IllegalStateException {
@@ -25,8 +67,13 @@ public class GsonDeepMerge {
   }
 
   /**
-   * Recursively merge a [JsonObject] with a provided [updateObject]. This method mutates the
-   * [JsonObject] it's called on.
+   * Recursively merge one {@link JsonObject} with another, preferring non-null values in the update
+   * object conflicts arise. This overwrites the original {@link JsonObject}.
+   *
+   * @param originalObject an original {@link JsonObject}
+   * @param updateObject an update {@link JsonObject}
+   * @return
+   * @throws IllegalStateException
    */
   private JsonObject deepMergeInPlace(
       @NotNull JsonObject originalObject, @NotNull JsonObject updateObject)
@@ -63,6 +110,13 @@ public class GsonDeepMerge {
     return originalObject;
   }
 
+  /**
+   * Compare two {@link JsonElement}s to see if their types conflict
+   *
+   * @param element1 a {@link JsonElement}
+   * @param element2 a {@link JsonElement}
+   * @return {@code true} if the types conflict, {@code false otherwise}
+   */
   private boolean typesConflict(@NotNull JsonElement element1, @NotNull JsonElement element2) {
     if (element1.isJsonNull()) {
       return false;
