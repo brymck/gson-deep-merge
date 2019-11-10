@@ -15,7 +15,7 @@ Include this in your POM:
 <dependency>
   <groupId>io.brymck</groupId>
   <artifactId>gson-deep-merge</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.9.0</version>
 </dependency>
 ```
 
