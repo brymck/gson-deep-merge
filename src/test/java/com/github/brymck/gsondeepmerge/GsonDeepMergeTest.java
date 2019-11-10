@@ -109,8 +109,10 @@ class GsonDeepMergeTest {
     JsonObject original = gson.fromJson(json, JsonObject.class);
     JsonObject nullJsonObject = gson.fromJson(nullJson, JsonObject.class);
     assertAll(
-        () -> Assertions.assertDoesNotThrow(() -> gsonDeepMerge.deepMerge(original, nullJsonObject)),
-        () -> Assertions.assertDoesNotThrow(() -> gsonDeepMerge.deepMerge(nullJsonObject, original)));
+        () ->
+            Assertions.assertDoesNotThrow(() -> gsonDeepMerge.deepMerge(original, nullJsonObject)),
+        () ->
+            Assertions.assertDoesNotThrow(() -> gsonDeepMerge.deepMerge(nullJsonObject, original)));
   }
 
   @ParameterizedTest
