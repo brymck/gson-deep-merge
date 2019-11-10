@@ -22,6 +22,21 @@
     </license>
   </licenses>
 
+  <scm>
+    <url>https://github.com/brymck/gson-deep-merge</url>
+    <connection>scm:git:git://github.com/brymck/gson-deep-merge.git</connection>
+    <developerConnection>scm:git:git@github.com:brymck/gson-deep-merge.git</developerConnection>
+  </scm>
+
+  <developers>
+    <developer>
+      <email>bryan.mckelvey@gmail.com</email>
+      <name>Bryan McKelvey</name>
+      <url>https://github.com/brymck</url>
+      <id>brymck</id>
+    </developer>
+  </developers>
+
   <properties>
     <!-- Dependency versions -->
     <fmt-maven-plugin.version>2.9</fmt-maven-plugin.version>
