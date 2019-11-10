@@ -13,9 +13,9 @@ Include this in your POM:
 
 ```xml
 <dependency>
-  <groupId>io.brymck</groupId>
+  <groupId>com.github.brymck</groupId>
   <artifactId>gson-deep-merge</artifactId>
-  <version>0.9.1-SNAPSHOT</version>
+  <version>0.9.0</version>
 </dependency>
 ```
 
