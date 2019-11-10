@@ -1,6 +1,9 @@
 gson-deep-merge
 ===============
 
+[![CircleCI](https://circleci.com/gh/brymck/gson-deep-merge.svg?style=svg)](https://circleci.com/gh/brymck/gson-deep-merge)
+[![codecov](https://codecov.io/gh/brymck/gson-deep-merge/branch/master/graph/badge.svg)](https://codecov.io/gh/brymck/gson-deep-merge)
+
 `gson-deep-merge` is a library that allows deep merging of objects with Gson.
 
 Usage
